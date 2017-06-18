@@ -1,9 +1,22 @@
 $(function (){
 
       function countdown(){
-
+            
+        /**
+         * Default settings for the module
+         */
+        var defaultSettings = {
+            secondsclass: 'seconden',
+            minutesclass: 'minuten',
+            hoursclass: 'uren', 
+            daysclass: 'dagen',
+            eventyear: 2017,
+            eventmonth: 05,
+            eventday: 30
+        };
+            
         var datumNu = new Date();                    //geeft het volgende resultaat -- Tue May 02 2017 16:55:38 GMT+0200 (West-Europa (zomertijd))
-        var eventDatum = new Date(2017, 04, 05);     //geeft het volgende resultaat -- Fri May 05 2017 00:00:00 GMT+0200 (West-Europa (zomertijd))
+        var eventDatum = new Date(defaultSettings.eventyear, defaultSettings.eventmonth, defaultSettings.eventday)
         var nu = datumNu.getTime();                  //de waarde hieruit is het aantal milliseconden sinds 00:00:00   01-01-1970 
         var eventTijd = eventDatum.getTime();        //de waarde hieruit is het aantal milliseconden sinds 00:00:00   01-01-1970 
 
@@ -34,10 +47,10 @@ $(function (){
         min = (min < 10) ? "0" + min : min;
         sec = (sec < 10) ? "0" + sec : sec;
           
-        document.getElementById('seconden').innerHTML = sec;    //De elementen op de html pagina de juiste waarde geven.
-        document.getElementById('minuten').innerHTML = min;     //De elementen op de html pagina de juiste waarde geven.
-        document.getElementById('uren').innerHTML = uur;        //De elementen op de html pagina de juiste waarde geven.
-        document.getElementById('dagen').innerHTML = dag;       //De elementen op de html pagina de juiste waarde geven.
+        document.getElementById(defaultSettings.secondsclass).innerHTML = sec;    //De elementen op de html pagina de juiste waarde geven.
+        document.getElementById(defaultSettings.minutesclass).innerHTML = min;     //De elementen op de html pagina de juiste waarde geven.
+        document.getElementById(defaultSettings.hoursclass).innerHTML = uur;        //De elementen op de html pagina de juiste waarde geven.
+        document.getElementById(defaultSettings.daysclass).innerHTML = dag;       //De elementen op de html pagina de juiste waarde geven.
 
         setTimeout(countdown, 1000);                            //de setTimeout() methode zorgt ervoor dat de functie countdown iedere seconde wordt herhaald.
           
