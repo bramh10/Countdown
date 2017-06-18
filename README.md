@@ -5,11 +5,20 @@ Dit is een library voor een Jquery countdown code.
 
 De mamier waarop deze library werkt is als volgt:
 1. Er wordt een functie aangemaakt genaamd "countdown"
-2. In deze funcie worden een aantal variabelen gezet
-   
+2. In deze funcie worden een aantal variabelen gezet, deze kunnen bovenaan de pagina worden ingevuld.
+
+        var defaultSettings = {
+            secondsclass: 'seconden',
+            minutesclass: 'minuten',
+            hoursclass: 'uren', 
+            daysclass: 'dagen',
+            eventyear: 2017,
+            eventmonth: 05,
+            eventday: 30
+        };
+        
         var datumNu = new Date();                    
-        var eventDatum = new Date(2017, 04, 05);      //2017-04-05 is de opgegeven datum als countdown.
-                                                        Let op! 04 is de dag en 05 is de maand!
+        var eventDatum = new Date(defaultSettings.eventyear, defaultSettings.eventmonth, defaultSettings.eventday);  
         
         var nu = datumNu.getTime();                   //de waarde hieruit is het aantal milliseconden sinds 00:00:00   01-01-1970 
         var eventTijd = eventDatum.getTime();         //de waarde hieruit is het aantal milliseconden sinds 00:00:00   01-01-1970 
@@ -47,10 +56,10 @@ Dit stuk code is volledig optioneel maar ik vind het er persoonlijk mooier uitzi
 
 5. Om de waardes op de HTML pagina aan te passen doen we het volgende
 
-        document.getElementById('seconden').innerHTML = sec;   
-        document.getElementById('minuten').innerHTML = min;     
-        document.getElementById('uren').innerHTML = uur;        
-        document.getElementById('dagen').innerHTML = dag;   
+        document.getElementById(defaultSettings.secondsclass).innerHTML = sec;   
+        document.getElementById(defaultSettings.minutesclass).innerHTML = min;     
+        document.getElementById(defaultSettings.hoursclass).innerHTML = uur;        
+        document.getElementById(defaultSettings.daysclass).innerHTML = dag;   
         
  6. Om ervoor te zorgen dat de waardes van de countdown iedere seconde worden aangepast maken we gebruikt van de setTimeout() methode, deze zorgt ervoor dat de functie wordt herhaald om een specifiek aantal opgegeven milliseconden (in dit geval 1000) ofterwel 1 seconde.
  
